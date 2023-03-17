@@ -154,8 +154,7 @@ const spells: Spell[] = [
     ],
     range: 'Self',
     components: ['V', 'S', 'M'],
-    material:
-      'Specially marked sticks, bones, or similar tokens worth at least 25gp.',
+    material: 'Specially marked sticks, bones, or similar tokens worth at least 25gp.',
     ritual: true,
     duration: 'Instantaneous',
     concentration: false,
@@ -1045,8 +1044,7 @@ const spells: Spell[] = [
     ],
     range: '150 feet',
     components: ['V', 'S', 'M'],
-    material:
-      'Seven sharp thorns or seven small twigs, each sharpened to a point.',
+    material: 'Seven sharp thorns or seven small twigs, each sharpened to a point.',
     ritual: false,
     duration: 'Up to 10 minutes',
     concentration: true,
