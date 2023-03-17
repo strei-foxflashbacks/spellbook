@@ -1,4 +1,9 @@
 function Main() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <h1>Ready to cast?</h1>
+      <input type="search" placeholder="search spells" />
+    </>
+  );
 }
 export default Main;
