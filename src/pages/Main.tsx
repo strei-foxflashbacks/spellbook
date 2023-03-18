@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Spellcards from '../components/Spellcards';
 
 function Main() {
   return (
@@ -7,7 +8,10 @@ function Main() {
         <h1>Ready to cast?</h1>
         <Link to="/about">About us</Link>
       </header>
-      <input type="search" placeholder="search spells" />
+      <body>
+        <input type="search" placeholder="search spells" />
+        <Spellcards />
+      </body>
     </>
   );
 }
