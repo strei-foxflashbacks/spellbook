@@ -9,7 +9,10 @@ function Main() {
         <Link to="/about">About us</Link>
       </header>
       <body>
-        <input type="search" placeholder="search spells" />
+        <fieldset className="searchfield">
+          <input type="search" placeholder="search spells" />
+          <button type="button">Search</button>
+        </fieldset>
         <Spellcards />
       </body>
     </>
