@@ -1,0 +1,83 @@
+.spells__wrapper {
+  padding: 0;
+  width: 97%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .spells__card {
+    list-style: none;
+    width: 20em;
+    height: 11em;
+    margin: 1%;
+    cursor: pointer;
+    background-color: #172026;
+    box-shadow: 0 8px 22px rgba(26,20,37,.8);
+    &:hover {
+      background-color: #325cab;
+      .spell__name {
+        background-color: #3567c9;
+      }
+    }
+    &:active {
+      background-color: #2552a5;
+      .spell__name {
+        background-color: #325cab;;
+      }
+    }
+    .spell__info {
+      height: 7.5em;
+      padding-left: 4%;
+      margin-top: 4%;
+      .spell__class {
+        width: 13em;
+      }
+    }
+    .spell__name {
+      margin: 0;
+      height: 2em;
+      line-height: 2em;
+      background-color: #1d282f;
+      padding-left: 4%;
+      margin-top: 3.5%;
+    }
+  }
+}
+
+.evocation,
+.abjuration,
+.necromancy,
+.divination,
+.transmutation,
+.enchantment,
+.illusion,
+.conjuration {
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.evocation {
+  background-image: url(../assets/evocation.png);
+}
+.abjuration {
+  background-image: url(../assets/abjuration.png);
+}
+.necromancy {
+  background-image: url(../assets/necromancy.png);
+}
+.divination {
+  background-image: url(../assets/divination.png);
+}
+.transmutation {
+  background-image: url(../assets/transmutation.png);
+}
+.enchantment {
+  background-image: url(../assets/enchantment.png);
+}
+.illusion {
+  background-image: url(../assets/illusion.png);
+}
+.conjuration {
+  background-image: url(../assets/conjuration.png);
+}
