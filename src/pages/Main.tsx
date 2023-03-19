@@ -15,9 +15,11 @@ function Main() {
 
   return (
     <>
-      <header>
+      <header className="header">
         <h1>Ready to cast?</h1>
-        <Link to="/about">About us</Link>
+        <Link to="/about" className="header__link">
+          About us
+        </Link>
       </header>
       <div>
         <fieldset className="searchfield">

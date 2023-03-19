@@ -1,7 +1,8 @@
 @import './normalize.css';
+@import './variables.scss';
+@import './header.scss';
 @import './spelllist.scss';
 @import './searchfield.scss';
-@import './variables.scss';
 
 body {
   background-color: $body-color;
