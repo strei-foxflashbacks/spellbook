@@ -19,7 +19,7 @@ function Main() {
         <h1>Ready to cast?</h1>
         <Link to="/about">About us</Link>
       </header>
-      <body>
+      <div>
         <fieldset className="searchfield">
           <input
             type="search"
@@ -30,7 +30,7 @@ function Main() {
           <button type="button">Search</button>
         </fieldset>
         <Spellcards />
-      </body>
+      </div>
     </>
   );
 }
