@@ -11,9 +11,12 @@ body {
   margin: 0;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.not-found {
+  text-align: center;
+  font-size: 1500%;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  .not-found__img {
+    width: 20%;
+  }
 }

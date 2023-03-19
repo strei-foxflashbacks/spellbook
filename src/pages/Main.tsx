@@ -21,7 +21,7 @@ function Main() {
           About us
         </Link>
       </header>
-      <div>
+      <div className="main">
         <fieldset className="searchfield">
           <input
             type="search"
