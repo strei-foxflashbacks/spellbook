@@ -20,3 +20,28 @@ body {
     width: 20%;
   }
 }
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    margin: 1% 8%;
+    font-size: 1.5em;
+    background-color: $main-element;
+    .about__paragraph {
+      padding: 1%;
+    }
+    .conclusion {
+      width: 20%;
+      flex-direction: row;
+    }
+  }
+  .about__img {
+    width: 18%;
+    margin-left: 37%;
+  }
+}
