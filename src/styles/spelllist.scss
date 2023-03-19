@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .spells__wrapper {
   padding: 0;
   width: 97%;
@@ -11,18 +13,18 @@
     height: 11em;
     margin: 1%;
     cursor: pointer;
-    background-color: #172026;
-    box-shadow: 0 8px 22px rgba(26,20,37,.8);
+    background-color: $main-element;
+    box-shadow: $box-shadow;
     &:hover {
-      background-color: #325cab;
+      background-color: $primary;
       .spell__name {
-        background-color: #3567c9;
+        background-color: $secondary;
       }
     }
     &:active {
-      background-color: #2552a5;
+      background-color: $primary-active;
       .spell__name {
-        background-color: #325cab;;
+        background-color: $primary;;
       }
     }
     .spell__info {
@@ -37,7 +39,7 @@
       margin: 0;
       height: 2em;
       line-height: 2em;
-      background-color: #1d282f;
+      background-color: $main-namefield;
       padding-left: 4%;
       margin-top: 3.5%;
     }
@@ -58,26 +60,26 @@
 }
 
 .evocation {
-  background-image: url(../assets/evocation.png);
+  background-image: $evocation;
 }
 .abjuration {
-  background-image: url(../assets/abjuration.png);
+  background-image: $abjuration;
 }
 .necromancy {
-  background-image: url(../assets/necromancy.png);
+  background-image: $necromancy;
 }
 .divination {
-  background-image: url(../assets/divination.png);
+  background-image: $divination;
 }
 .transmutation {
-  background-image: url(../assets/transmutation.png);
+  background-image: $transmutation;
 }
 .enchantment {
-  background-image: url(../assets/enchantment.png);
+  background-image: $enchantment;
 }
 .illusion {
-  background-image: url(../assets/illusion.png);
+  background-image: $illusion;
 }
 .conjuration {
-  background-image: url(../assets/conjuration.png);
+  background-image: $conjuration;
 }

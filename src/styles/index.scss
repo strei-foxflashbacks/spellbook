@@ -1,10 +1,11 @@
 @import './normalize.css';
 @import './spelllist.scss';
 @import './searchfield.scss';
+@import './variables.scss';
 
 body {
-  background-color: #131a20;
-  color: #f8f8f8;
+  background-color: $body-color;
+  color: $text-color;
   padding: 0;
   margin: 0;
 }

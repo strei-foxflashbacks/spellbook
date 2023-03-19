@@ -23,6 +23,7 @@ function Main() {
         <fieldset className="searchfield">
           <input
             type="search"
+            className="searchbar"
             placeholder="search spells"
             onChange={handleChange}
             defaultValue={getLSValue('spell')}
