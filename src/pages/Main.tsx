@@ -28,7 +28,9 @@ function Main() {
             onChange={handleChange}
             defaultValue={getLSValue('spell')}
           />
-          <button type="button">Search</button>
+          <button type="button" className="search-button">
+            Search
+          </button>
         </fieldset>
         <Spellcards />
       </div>

@@ -2,5 +2,28 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 1%;
+  padding: 1% 0;
+}
+
+.searchbar {
+  background-color: $main-namefield;
+  border-radius: 5px;
+  color: $text-color;
+  width: 15em;
+  height: 2em;
+  padding: 0 0.7%;
+  margin: 0 1%;
+}
+
+.search-button {
+  background-color: $main-element;
+  color: $text-color;
+  border-radius: 5px;
+  padding: 0.32% 0.7%;
+  &:active {
+    background-color: $primary-active;
+  }
+  &:hover {
+    background-color: $secondary;
+  }
 }
