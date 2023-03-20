@@ -13,7 +13,7 @@ function About() {
       <article className="about">
         <section className="about__text">
           <div className="about__paragraph">
-            Hi! If you are already a huge D&D fun just like me, you already know what to do in this
+            Hi! If you are already a huge D&D fan just like me, you already know what to do in this
             app. <br /> If not, I'll quickly explain what is going on here.
           </div>
           <div className="about__paragraph">
