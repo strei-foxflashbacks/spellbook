@@ -11,7 +11,6 @@ function NotFound() {
       </header>
       <div className="not-found">
         <div>404</div>
-        <img src="./src/assets/nat1.png" alt="natural 1" className="not-found__img" />
       </div>
     </>
   );

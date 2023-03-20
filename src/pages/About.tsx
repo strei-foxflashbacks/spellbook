@@ -26,7 +26,6 @@ function About() {
             journeys.
           </div>
           <div className="about__paragraph conclusion">I hope you like it!</div>
-          <img src="./src/assets/nat20.png" alt="natural 20" className="about__img" />
         </section>
       </article>
     </>
