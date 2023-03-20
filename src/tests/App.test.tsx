@@ -27,4 +27,16 @@ describe('App', () => {
       })
     ).toHaveTextContent('No such page');
   });
+  it('Renders About page', () => {
+    render(
+      <MemoryRouter initialEntries={['/about']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+      })
+    ).toHaveTextContent('About us');
+  });
 });
