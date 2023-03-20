@@ -5,13 +5,13 @@ import { MemoryRouter } from 'react-router-dom';
 import { WrappedApp, App } from '../App';
 
 describe('App', () => {
-  it('Renders hello world', () => {
+  it('Renders main page', () => {
     render(<WrappedApp />);
     expect(
       screen.getByRole('heading', {
         level: 1,
       })
-    ).toHaveTextContent('Hello World');
+    ).toHaveTextContent('Ready to cast?');
   });
   it('Renders NotFound for invalid path', () => {
     const badRoute = '/some/bad/route';
