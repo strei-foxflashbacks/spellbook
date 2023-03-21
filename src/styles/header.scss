@@ -1,0 +1,18 @@
+.header {
+  margin: 2%;
+  height: auto;
+}
+
+.header__link {
+  color: $text-color;
+  text-decoration: none;
+  &:visited {
+    color: $text-color;
+  }
+  &:hover {
+    color: $secondary
+  }
+  &:active {
+    color: $primary-active;
+  }
+}

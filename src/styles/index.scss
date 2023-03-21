@@ -1,0 +1,49 @@
+@import './normalize.css';
+@import './variables.scss';
+@import './header.scss';
+@import './spelllist.scss';
+@import './searchfield.scss';
+
+body {
+  background-color: $body-color;
+  color: $text-color;
+  padding: 0;
+  margin: 0;
+}
+
+.not-found {
+  text-align: center;
+  font-size: 1500%;
+  padding-bottom: 40%;
+  background-image: url('../assets/nat1.png');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .about__text {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    margin: 1% 8%;
+    font-size: 1.5em;
+    background-color: $main-element;
+    .about__paragraph {
+      padding: 1%;
+    }
+    .conclusion {
+      background-image: url('../assets/nat20.png');
+      background-size: 5%;
+      background-repeat: no-repeat;
+      background-position: 18%;
+    }
+  }
+  .about__img {
+    width: 18%;
+    margin-left: 37%;
+  }
+}
