@@ -20,6 +20,9 @@ function Main() {
         <Link to="/about" className="header__link">
           About us
         </Link>
+        <Link to="/form" className="header__link">
+          Form
+        </Link>
       </header>
       <div className="main">
         <fieldset className="searchfield">
