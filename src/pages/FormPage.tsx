@@ -5,6 +5,8 @@ function FormPage() {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [role, setRole] = useState('Player');
+  const [image, setImage] = useState('');
+  const [check, setCheck] = useState(true);
   const [agree, setAgree] = useState(false);
   const submitForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -57,35 +59,40 @@ function FormPage() {
               <option>Viewer</option>
             </select>
           </label>
-          <label htmlFor="background" className="searchfield">
-            Background image:
+          <label htmlFor="type" className="searchfield">
+            Type:
             <input
               type="radio"
-              className="background"
-              name="background"
+              // className="searchbar"
+              name="type"
+              checked={check || false}
               // value={date}
+              onChange={() => setCheck((prev) => !prev)}
               // onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
               // placeholder="search spells"
               // defaultValue={getLSValue('spell')}
             />
+            Campaign
             <input
               type="radio"
-              className="background"
-              name="background"
+              // className="searchbar"
+              name="type"
+              checked={check || true}
               // value={date}
-              // onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
+              onChange={() => setCheck((prev) => !prev)}
               // placeholder="search spells"
               // defaultValue={getLSValue('spell')}
             />
+            Oneshot
           </label>
-          <label htmlFor="date" className="searchfield">
+          <label htmlFor="image" className="searchfield">
             Image:
             <input
               type="file"
               className="searchbar"
-              name="date"
-              // value={date}
-              // onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
+              name="image"
+              value={image}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => setImage(event.target.value)}
               // placeholder="search spells"
               // defaultValue={getLSValue('spell')}
             />
