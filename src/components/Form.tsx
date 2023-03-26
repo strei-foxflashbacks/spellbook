@@ -61,12 +61,9 @@ function Form({ setFormValues }: FormProps) {
   };
   return (
     <div className="main">
-      <form className="searchfield" onSubmit={submitForm}>
-        <label htmlFor="title" className="searchfield">
-          <p>
-            Title:{' '}
-            {errors?.title === '' && <span className="error-message">* Set your game title</span>}
-          </p>
+      <form className="formfield" onSubmit={submitForm}>
+        <label htmlFor="title" className="formfield__label">
+          <p className="formfield__title">Title:</p>
           <input
             type="text"
             className="searchbar"
@@ -74,12 +71,12 @@ function Form({ setFormValues }: FormProps) {
             value={title || ''}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value)}
           />
-        </label>
-        <label htmlFor="date" className="searchfield">
-          <p>
-            Date:{' '}
-            {errors?.date === '' && <span className="error-message">* Set your game date</span>}
+          <p className="formfield__error">
+            {errors?.title === '' && <span className="error-message">* Set your game title</span>}
           </p>
+        </label>
+        <label htmlFor="date" className="formfield__label">
+          <p className="formfield__title">Date:</p>
           <input
             type="date"
             className="searchbar"
@@ -87,9 +84,12 @@ function Form({ setFormValues }: FormProps) {
             value={date || ''}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
           />
+          <p className="formfield__error">
+            {errors?.date === '' && <span className="error-message">* Set your game date</span>}
+          </p>
         </label>
-        <label htmlFor="role" className="searchfield">
-          Role:
+        <label htmlFor="role" className="formfield__label">
+          <p className="formfield__title">Role:</p>
           <select
             className="searchbar"
             name="role"
@@ -101,8 +101,8 @@ function Form({ setFormValues }: FormProps) {
             <option>Viewer</option>
           </select>
         </label>
-        <label htmlFor="type" className="searchfield">
-          Type:
+        <label htmlFor="type" className="formfield__label">
+          <p className="formfield__title">Type:</p>
           <input
             type="radio"
             name="type"
@@ -120,26 +120,29 @@ function Form({ setFormValues }: FormProps) {
           />
           Oneshot
         </label>
-        <label htmlFor="image" className="searchfield">
-          Image:
+        <label htmlFor="image" className="formfield__label">
+          <p className="formfield__title">Image:</p>
           <input type="file" className="searchbar" name="image" onChange={handleFileChange} />
         </label>
-        <label htmlFor="agreement" className="searchfield">
-          <p>
-            I agree to terms of use:{' '}
+        <label htmlFor="agreement" className="formfield__label label-agree">
+          <div className="formfield_agree">
+            <input
+              type="checkbox"
+              // className="searchbar"
+              className="agree"
+              name="agreement"
+              checked={agree}
+              onChange={() => setAgree((prev) => !prev)}
+            />
+            <p className="formfield__title">I agree to terms of use</p>
+          </div>
+          <p className="formfield__error">
             {errors?.agree !== undefined && (
               <span className="error-message">* check the agreement first</span>
             )}
           </p>
-          <input
-            type="checkbox"
-            className="searchbar"
-            name="date"
-            checked={agree}
-            onChange={() => setAgree((prev) => !prev)}
-          />
         </label>
-        <button type="submit" className="search-button" value="Send">
+        <button type="submit" className="search-button submit-button" value="Send">
           Submit
         </button>
       </form>
