@@ -8,10 +8,21 @@ function Form({ setFormValues }: FormProps) {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [role, setRole] = useState('Player');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState<string | null>(null);
   const [check, setCheck] = useState(true);
   const [agree, setAgree] = useState(false);
   const [errors, setError] = useState<ValidationErrors>({});
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    const input = event.target as HTMLInputElement;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage(reader.result as string);
+    };
+    input.value = '';
+    reader.readAsDataURL(file as Blob);
+  };
 
   useEffect(() => {
     const validate = () => {
@@ -32,7 +43,7 @@ function Form({ setFormValues }: FormProps) {
     setTitle('');
     setDate('');
     setRole('Player');
-    setImage('');
+    setImage(null);
     setCheck(true);
     setAgree(false);
     setError({});
@@ -44,8 +55,8 @@ function Form({ setFormValues }: FormProps) {
         ...state,
         { title, date, role, image, check, agree },
       ]);
-      reset();
       alert('Your game has been submitted successfully!');
+      reset();
     }
   };
   return (
@@ -95,7 +106,7 @@ function Form({ setFormValues }: FormProps) {
           <input
             type="radio"
             name="type"
-            checked={check || false}
+            checked={check}
             value="Campaign"
             onChange={() => setCheck((prev) => !prev)}
           />
@@ -103,7 +114,7 @@ function Form({ setFormValues }: FormProps) {
           <input
             type="radio"
             name="type"
-            checked={check || true}
+            checked={!check}
             value="Oneshot"
             onChange={() => setCheck((prev) => !prev)}
           />
@@ -111,13 +122,7 @@ function Form({ setFormValues }: FormProps) {
         </label>
         <label htmlFor="image" className="searchfield">
           Image:
-          <input
-            type="file"
-            className="searchbar"
-            name="image"
-            value={image || ''}
-            onChange={(event: ChangeEvent<HTMLInputElement>) => setImage(event.target.value)}
-          />
+          <input type="file" className="searchbar" name="image" onChange={handleFileChange} />
         </label>
         <label htmlFor="agreement" className="searchfield">
           <p>
