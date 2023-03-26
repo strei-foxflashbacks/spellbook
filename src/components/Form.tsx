@@ -12,7 +12,6 @@ function Form({ setFormValues }: FormProps) {
   const submitForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
     setFormValues((state: FormValues[]) => [...state, { title, date, role, image, check, agree }]);
-    console.log(title, date, role, image, check, agree);
   };
   return (
     <div className="main">
@@ -25,8 +24,6 @@ function Form({ setFormValues }: FormProps) {
             name="title"
             value={title || ''}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setTitle(event.target.value)}
-            // placeholder="search spells"
-            // defaultValue={getLSValue('spell')}
           />
         </label>
         <label htmlFor="date" className="searchfield">
@@ -37,8 +34,6 @@ function Form({ setFormValues }: FormProps) {
             name="date"
             value={date || ''}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
-            // placeholder="search spells"
-            // defaultValue={getLSValue('spell')}
           />
         </label>
         <label htmlFor="role" className="searchfield">
@@ -58,25 +53,18 @@ function Form({ setFormValues }: FormProps) {
           Type:
           <input
             type="radio"
-            // className="searchbar"
             name="type"
             checked={check || false}
             value="Campaign"
             onChange={() => setCheck((prev) => !prev)}
-            // onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
-            // placeholder="search spells"
-            // defaultValue={getLSValue('spell')}
           />
           Campaign
           <input
             type="radio"
-            // className="searchbar"
             name="type"
             checked={check || true}
             value="Oneshot"
             onChange={() => setCheck((prev) => !prev)}
-            // placeholder="search spells"
-            // defaultValue={getLSValue('spell')}
           />
           Oneshot
         </label>
@@ -88,8 +76,6 @@ function Form({ setFormValues }: FormProps) {
             name="image"
             value={image || ''}
             onChange={(event: ChangeEvent<HTMLInputElement>) => setImage(event.target.value)}
-            // placeholder="search spells"
-            // defaultValue={getLSValue('spell')}
           />
         </label>
         <label htmlFor="agreement" className="searchfield">
@@ -100,10 +86,6 @@ function Form({ setFormValues }: FormProps) {
             name="date"
             checked={agree}
             onChange={() => setAgree((prev) => !prev)}
-            // value={date}
-            // onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
-            // placeholder="search spells"
-            // defaultValue={getLSValue('spell')}
           />
         </label>
         <button type="submit" className="search-button" value="Send">
