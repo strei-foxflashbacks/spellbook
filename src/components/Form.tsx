@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { ChangeEvent, useEffect, useState } from 'react';
 import { FormValues } from 'src/types/FormValues';
 import { FormProps } from 'src/types/FormProps';
@@ -27,6 +28,15 @@ function Form({ setFormValues }: FormProps) {
     };
     validate();
   }, [agree, title, date]);
+  const reset = () => {
+    setTitle('');
+    setDate('');
+    setRole('Player');
+    setImage('');
+    setCheck(true);
+    setAgree(false);
+    setError({});
+  };
   const submitForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
     if (Object.keys(errors).length === 0) {
@@ -34,6 +44,8 @@ function Form({ setFormValues }: FormProps) {
         ...state,
         { title, date, role, image, check, agree },
       ]);
+      reset();
+      alert('Your game has been submitted successfully!');
     }
   };
   return (
