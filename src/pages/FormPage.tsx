@@ -7,7 +7,7 @@ function FormPage() {
   const [formValues, setFormValues] = useState<FormValues[]>([]);
   const formCards = formValues.map((item, i) => {
     return (
-      <li key={item.title} id={`${i}`} className="spells__card">
+      <li key={`${item.title}_${item.date}`} id={`${i}`} className="spells__card">
         {item.title}
       </li>
     );
