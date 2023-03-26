@@ -66,7 +66,7 @@ function FormPage() {
               // className="searchbar"
               name="type"
               checked={check || false}
-              // value={date}
+              value="Campaign"
               onChange={() => setCheck((prev) => !prev)}
               // onChange={(event: ChangeEvent<HTMLInputElement>) => setDate(event.target.value)}
               // placeholder="search spells"
@@ -78,7 +78,7 @@ function FormPage() {
               // className="searchbar"
               name="type"
               checked={check || true}
-              // value={date}
+              value="Oneshot"
               onChange={() => setCheck((prev) => !prev)}
               // placeholder="search spells"
               // defaultValue={getLSValue('spell')}
@@ -91,7 +91,7 @@ function FormPage() {
               type="file"
               className="searchbar"
               name="image"
-              value={image}
+              value={image || ''}
               onChange={(event: ChangeEvent<HTMLInputElement>) => setImage(event.target.value)}
               // placeholder="search spells"
               // defaultValue={getLSValue('spell')}
