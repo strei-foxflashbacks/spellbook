@@ -1,6 +1,7 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { FormValues } from 'src/types/FormValues';
 import { FormProps } from 'src/types/FormProps';
+import { ValidationErrors } from 'src/types/ValidationErrors';
 
 function Form({ setFormValues }: FormProps) {
   const [title, setTitle] = useState('');
@@ -9,15 +10,40 @@ function Form({ setFormValues }: FormProps) {
   const [image, setImage] = useState('');
   const [check, setCheck] = useState(true);
   const [agree, setAgree] = useState(false);
+  const [errors, setError] = useState<ValidationErrors>({});
+
+  useEffect(() => {
+    const validate = () => {
+      setError({});
+      if (!agree) {
+        setError((state) => ({ ...state, agree }));
+      }
+      if (title === '') {
+        setError((state) => ({ ...state, title }));
+      }
+      if (date === '') {
+        setError((state) => ({ ...state, date }));
+      }
+    };
+    validate();
+  }, [agree, title, date]);
   const submitForm = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    setFormValues((state: FormValues[]) => [...state, { title, date, role, image, check, agree }]);
+    if (Object.keys(errors).length === 0) {
+      setFormValues((state: FormValues[]) => [
+        ...state,
+        { title, date, role, image, check, agree },
+      ]);
+    }
   };
   return (
     <div className="main">
       <form className="searchfield" onSubmit={submitForm}>
         <label htmlFor="title" className="searchfield">
-          Title:
+          <p>
+            Title:{' '}
+            {errors?.title === '' && <span className="error-message">* Set your game title</span>}
+          </p>
           <input
             type="text"
             className="searchbar"
@@ -27,7 +53,10 @@ function Form({ setFormValues }: FormProps) {
           />
         </label>
         <label htmlFor="date" className="searchfield">
-          Date:
+          <p>
+            Date:{' '}
+            {errors?.date === '' && <span className="error-message">* Set your game date</span>}
+          </p>
           <input
             type="date"
             className="searchbar"
@@ -79,7 +108,12 @@ function Form({ setFormValues }: FormProps) {
           />
         </label>
         <label htmlFor="agreement" className="searchfield">
-          I agree to terms of use:
+          <p>
+            I agree to terms of use:{' '}
+            {errors?.agree !== undefined && (
+              <span className="error-message">* check the agreement first</span>
+            )}
+          </p>
           <input
             type="checkbox"
             className="searchbar"

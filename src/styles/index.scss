@@ -11,6 +11,10 @@ body {
   margin: 0;
 }
 
+.error-message {
+  color: $error;
+}
+
 .not-found {
   text-align: center;
   font-size: 1500%;
