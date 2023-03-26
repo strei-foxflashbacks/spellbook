@@ -1,0 +1,85 @@
+@import './variables.scss';
+
+.spells__wrapper {
+  padding: 0;
+  width: 97%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .spells__card {
+    list-style: none;
+    width: 20em;
+    height: 11em;
+    margin: 1%;
+    cursor: pointer;
+    background-color: $main-element;
+    box-shadow: $box-shadow;
+    &:hover {
+      background-color: $primary;
+      .spell__name {
+        background-color: $secondary;
+      }
+    }
+    &:active {
+      background-color: $primary-active;
+      .spell__name {
+        background-color: $primary;;
+      }
+    }
+    .spell__info {
+      height: 7.5em;
+      padding-left: 4%;
+      margin-top: 4%;
+      .spell__class {
+        width: 13em;
+      }
+    }
+    .spell__name {
+      margin: 0;
+      height: 2em;
+      line-height: 2em;
+      background-color: $main-namefield;
+      padding-left: 4%;
+      margin-top: 3.5%;
+    }
+  }
+}
+
+.evocation,
+.abjuration,
+.necromancy,
+.divination,
+.transmutation,
+.enchantment,
+.illusion,
+.conjuration {
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.evocation {
+  background-image: $evocation;
+}
+.abjuration {
+  background-image: $abjuration;
+}
+.necromancy {
+  background-image: $necromancy;
+}
+.divination {
+  background-image: $divination;
+}
+.transmutation {
+  background-image: $transmutation;
+}
+.enchantment {
+  background-image: $enchantment;
+}
+.illusion {
+  background-image: $illusion;
+}
+.conjuration {
+  background-image: $conjuration;
+}

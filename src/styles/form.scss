@@ -1,0 +1,36 @@
+.formfield {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 2px solid white;
+  .formfield__label {
+    display: flex;
+    flex-direction: column;
+    margin: 1% 2%
+  }
+  .formfield__title,
+  .formfield__error {
+    margin: 3%;
+  }
+  .label-agree {
+    width: 20em;
+    align-items: center;
+    margin: 0 0 0 10%;
+  }
+  .formfield_agree {
+    display: flex;
+    justify-content: center;
+    .agree {
+      width: 2em;
+    }
+  }
+}
+
+.submit-button {
+  height: 2.3em;
+  width: 6em;
+  align-self: center;
+  position: relative;
+  right: 30%;
+}
