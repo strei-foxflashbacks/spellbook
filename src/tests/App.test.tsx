@@ -39,4 +39,16 @@ describe('App', () => {
       })
     ).toHaveTextContent('About us');
   });
+  it('Renders Form page', () => {
+    render(
+      <MemoryRouter initialEntries={['/form']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(
+      screen.getByRole('heading', {
+        level: 1,
+      })
+    ).toHaveTextContent('Game sheldue');
+  });
 });
