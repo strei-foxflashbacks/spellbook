@@ -1,22 +1,19 @@
 import { useState, useEffect } from 'react';
-// import { Spell } from 'src/types/Spell';
-// import { APIResponse } from 'src/types/APIResponse';
-// import spells from './spells';
-// import { Result } from 'src/types/Result';
-// import spellsFromAPI from './API/spellsFromAPI';
+import { ParamProps } from 'src/types/ParamProps';
 import { Spell } from 'src/types/Spell';
 import getSpellsArray from './API/getSpellsArray';
 
-function Spellcards() {
+function Spellcards({ index, submitCount }: ParamProps) {
   const [data, setData] = useState<Spell[] | null>(null);
 
   useEffect(() => {
+    setData(null);
     async function getData() {
-      const res = await getSpellsArray();
-      setData(res);
+      const res = await getSpellsArray(index.toLowerCase().replace(/ /gi, '-'));
+      setData(res as Spell[]);
     }
     getData();
-  }, []);
+  }, [index, submitCount]);
 
   if (!data) {
     return <div className="spells__loading">Loading...</div>;

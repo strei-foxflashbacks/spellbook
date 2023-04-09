@@ -1,16 +1,29 @@
 import { Link } from 'react-router-dom';
 import { useState, ChangeEvent } from 'react';
+import { useForm } from 'react-hook-form';
 import getLSValue from '../components/getLSValue';
 import setLSValue from '../components/setLSValue';
 import Spellcards from '../components/Spellcards';
 
 function Main() {
   const [message, setMessage] = useState('');
+  const {
+    handleSubmit,
+    reset,
+    formState: { submitCount },
+  } = useForm();
+  const [param, setParam] = useState('');
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
     setLSValue('spell', event.target.value);
+    setParam('');
     return message;
+  };
+
+  const onSubmit = () => {
+    setParam(getLSValue('spell'));
+    reset();
   };
 
   return (
@@ -25,7 +38,7 @@ function Main() {
         </Link>
       </header>
       <div className="main">
-        <fieldset className="searchfield">
+        <form className="searchfield" onSubmit={handleSubmit(onSubmit)}>
           <input
             type="search"
             className="searchbar"
@@ -33,11 +46,11 @@ function Main() {
             onChange={handleChange}
             defaultValue={getLSValue('spell')}
           />
-          <button type="button" className="search-button">
+          <button type="submit" className="search-button">
             Search
           </button>
-        </fieldset>
-        <Spellcards />
+        </form>
+        <Spellcards index={param} submitCount={submitCount} />
       </div>
     </>
   );
