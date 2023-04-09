@@ -46,6 +46,14 @@
   }
 }
 
+.spells__loading {
+  height: 5em;
+  font-size: 400%;
+  background-image: $loading;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  padding: 13% 0 0 50%;
+}
 .evocation,
 .abjuration,
 .necromancy,
