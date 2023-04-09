@@ -26,6 +26,13 @@ function Main() {
     reset();
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      handleSubmit(onSubmit)();
+    }
+  };
+
   return (
     <>
       <header className="header">
@@ -45,6 +52,7 @@ function Main() {
             placeholder="search spells"
             onChange={handleChange}
             defaultValue={getLSValue('spell')}
+            onKeyDown={handleKeyDown}
           />
           <button type="submit" className="search-button">
             Search
