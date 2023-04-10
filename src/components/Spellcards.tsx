@@ -1,12 +1,21 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect } from 'react';
 import { ParamProps } from 'src/types/ParamProps';
 import { Spell } from 'src/types/Spell';
 import getSpellsArray from './API/getSpellsArray';
+import Modal from './Modal';
 
 function Spellcards({ index, submitCount }: ParamProps) {
   const [data, setData] = useState<Spell[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedSpell, setSelectedSpell] = useState<Spell | null>(null);
+
+  const handleCardClick = (spell: Spell) => {
+    setSelectedSpell(spell);
+  };
 
   useEffect(() => {
     setData(null);
@@ -39,7 +48,15 @@ function Spellcards({ index, submitCount }: ParamProps) {
   try {
     const spellsList = data.map((spell): JSX.Element => {
       return (
-        <li key={spell.index} id={spell.index} className="spells__card">
+        <li
+          key={spell.index}
+          id={spell.index}
+          className="spells__card"
+          onClick={() => {
+            setIsOpen(true);
+            handleCardClick(spell);
+          }}
+        >
           <div className={`spell__info ${spell.school.index}`}>
             <div className="spell__level">
               <i>
@@ -74,7 +91,47 @@ function Spellcards({ index, submitCount }: ParamProps) {
       );
     });
 
-    return <ul className="spells__wrapper">{spellsList}</ul>;
+    return (
+      <>
+        <ul className="spells__wrapper">{spellsList}</ul>
+        <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+          <h2>{selectedSpell?.name}</h2>
+          <div className={`spell__info ${selectedSpell!.school.index}`}>
+            <div className="spell__level">
+              <i>
+                {selectedSpell!.level > 0
+                  ? `${selectedSpell!.level} Level ${selectedSpell!.school.name}`
+                  : `Cantrip ${selectedSpell!.school.name}`}
+              </i>
+            </div>
+            <div className="spell__casting-time">
+              <b>Casting time: </b>
+              <i> {selectedSpell!.casting_time}</i>
+            </div>
+            <div className="spell__distance">
+              <b>Distance: </b>
+              <i>{selectedSpell!.range}</i>
+            </div>
+            <div className="spell__components">
+              <b>Components: </b>
+              <i>{selectedSpell!.components.join(', ')}</i>
+            </div>
+            <div className="spell__duration">
+              <b>Duration: </b>
+              <i>{selectedSpell!.duration}</i>
+            </div>
+            <div className="spell__class">
+              <b>Classes:</b>
+              <i>{selectedSpell!.classes.map((element) => ` ${element.name}`).join(', ')}</i>
+            </div>
+            <div>
+              <b>Description:</b>
+              <i>{selectedSpell?.desc}</i>
+            </div>
+          </div>
+        </Modal>
+      </>
+    );
   } catch (err) {
     return <div className="spells__error">No such spell in your spellbook!</div>;
   }
