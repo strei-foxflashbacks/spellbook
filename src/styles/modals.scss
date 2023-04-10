@@ -4,8 +4,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: $main-element;
-  padding: 20%;
   z-index: 1000;
+  height: 35em;
+  width: 45em;
 }
 
 .modal__overlay {
@@ -16,4 +17,33 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, .7);
   z-index: 1000;
+}
+
+.modal-spell__wrapper {
+  background-position: 70% 16%;
+  background-size: 20%;
+}
+
+.modal-spell__info {
+  padding: 0 3% 0 3%;
+}
+
+.modal-spell__name {
+  background-color: $main-namefield;
+  padding: 2% 0 2% 3%;
+  margin: 0;
+}
+
+.modal-spell__summary {
+  margin: 3% 0 3% 0;
+  padding: 0 0 2% 0;
+  border-bottom: 2px solid white;
+}
+
+.modal-spell__description {
+  height: 20em;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

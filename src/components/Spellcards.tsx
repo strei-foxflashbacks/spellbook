@@ -65,22 +65,22 @@ function Spellcards({ index, submitCount }: ParamProps) {
                   : `Cantrip ${spell.school.name}`}
               </i>
             </div>
-            <div className="spell__casting-time">
+            {/* <div className="spell__casting-time">
               <b>Casting time: </b>
               <i> {spell.casting_time}</i>
-            </div>
-            <div className="spell__distance">
+            </div> */}
+            {/* <div className="spell__distance">
               <b>Distance: </b>
               <i>{spell.range}</i>
-            </div>
-            <div className="spell__components">
+            </div> */}
+            {/* <div className="spell__components">
               <b>Components: </b>
               <i>{spell.components.join(', ')}</i>
-            </div>
-            <div className="spell__duration">
+            </div> */}
+            {/* <div className="spell__duration">
               <b>Duration: </b>
               <i>{spell.duration}</i>
-            </div>
+            </div> */}
             <div className="spell__class">
               <b>Classes:</b>
               <i>{spell.classes.map((element) => ` ${element.name}`).join(', ')}</i>
@@ -95,10 +95,43 @@ function Spellcards({ index, submitCount }: ParamProps) {
       <>
         <ul className="spells__wrapper">{spellsList}</ul>
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-          <h2>{selectedSpell?.name}</h2>
-          <div>
-            <b>Description:</b>
-            <i>{selectedSpell?.desc}</i>
+          <div className={`modal-spell__wrapper ${selectedSpell?.school.index}`}>
+            <h2 className="modal-spell__name">{selectedSpell?.name}</h2>
+            <div className="modal-spell__info">
+              <div className="modal-spell__summary">
+                <div className="spell__level">
+                  <i>
+                    {`${selectedSpell?.level} Level ${selectedSpell?.school.name}`.replace(
+                      /0 Level/,
+                      'Cantrip'
+                    )}
+                  </i>
+                </div>
+                <div className="spell__casting-time">
+                  <b>Casting time: </b>
+                  <i> {selectedSpell?.casting_time}</i>
+                </div>
+                <div className="spell__distance">
+                  <b>Distance: </b>
+                  <i>{selectedSpell?.range}</i>
+                </div>
+                <div className="spell__components">
+                  <b>Components: </b>
+                  <i>{selectedSpell?.components.join(', ')}</i>
+                </div>
+                <div className="spell__duration">
+                  <b>Duration: </b>
+                  <i>{selectedSpell?.duration}</i>
+                </div>
+                <div className="spell__class">
+                  <b>Classes:</b>
+                  <i>{selectedSpell?.classes.map((element) => ` ${element.name}`).join(', ')}</i>
+                </div>
+              </div>
+              <div className="modal-spell__description">
+                <i>{selectedSpell?.desc}</i>
+              </div>
+            </div>
           </div>
         </Modal>
       </>
