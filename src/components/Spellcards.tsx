@@ -96,38 +96,9 @@ function Spellcards({ index, submitCount }: ParamProps) {
         <ul className="spells__wrapper">{spellsList}</ul>
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
           <h2>{selectedSpell?.name}</h2>
-          <div className={`spell__info ${selectedSpell!.school.index}`}>
-            <div className="spell__level">
-              <i>
-                {selectedSpell!.level > 0
-                  ? `${selectedSpell!.level} Level ${selectedSpell!.school.name}`
-                  : `Cantrip ${selectedSpell!.school.name}`}
-              </i>
-            </div>
-            <div className="spell__casting-time">
-              <b>Casting time: </b>
-              <i> {selectedSpell!.casting_time}</i>
-            </div>
-            <div className="spell__distance">
-              <b>Distance: </b>
-              <i>{selectedSpell!.range}</i>
-            </div>
-            <div className="spell__components">
-              <b>Components: </b>
-              <i>{selectedSpell!.components.join(', ')}</i>
-            </div>
-            <div className="spell__duration">
-              <b>Duration: </b>
-              <i>{selectedSpell!.duration}</i>
-            </div>
-            <div className="spell__class">
-              <b>Classes:</b>
-              <i>{selectedSpell!.classes.map((element) => ` ${element.name}`).join(', ')}</i>
-            </div>
-            <div>
-              <b>Description:</b>
-              <i>{selectedSpell?.desc}</i>
-            </div>
+          <div>
+            <b>Description:</b>
+            <i>{selectedSpell?.desc}</i>
           </div>
         </Modal>
       </>
