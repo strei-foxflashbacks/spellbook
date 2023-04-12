@@ -65,22 +65,6 @@ function Spellcards({ index, submitCount }: ParamProps) {
                   : `Cantrip ${spell.school.name}`}
               </i>
             </div>
-            {/* <div className="spell__casting-time">
-              <b>Casting time: </b>
-              <i> {spell.casting_time}</i>
-            </div> */}
-            {/* <div className="spell__distance">
-              <b>Distance: </b>
-              <i>{spell.range}</i>
-            </div> */}
-            {/* <div className="spell__components">
-              <b>Components: </b>
-              <i>{spell.components.join(', ')}</i>
-            </div> */}
-            {/* <div className="spell__duration">
-              <b>Duration: </b>
-              <i>{spell.duration}</i>
-            </div> */}
             <div className="spell__class">
               <b>Classes:</b>
               <i>{spell.classes.map((element) => ` ${element.name}`).join(', ')}</i>
